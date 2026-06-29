@@ -1,0 +1,10 @@
+{
+  "name": "regression-eval-repo-2",
+  "version": "1.0.0",
+  "description": "Small self-contained Node.js utilities.",
+  "main": "src/greeting.js",
+  "scripts": {
+    "test": "node -e \"const {greet}=require('./src/greeting');if(greet('World')!=='Hello, World!'){process.exit(1)}console.log('ok')\""
+  },
+  "license": "MIT"
+}
