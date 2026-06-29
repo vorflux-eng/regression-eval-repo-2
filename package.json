@@ -3,5 +3,11 @@
   "version": "1.0.0",
   "description": "Small self-contained Node.js utilities.",
   "main": "src/greeting.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
   "license": "MIT"
 }
