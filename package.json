@@ -1,0 +1,17 @@
+{
+  "name": "regression-eval-repo-2",
+  "version": "1.0.0",
+  "description": "Simple Express server with health check endpoint",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.18.3"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "supertest": "^7.2.2"
+  }
+}
