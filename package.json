@@ -1,0 +1,7 @@
+{
+  "name": "regression-eval-repo-2",
+  "version": "1.0.0",
+  "description": "Small utilities.",
+  "main": "src/greeting.js",
+  "license": "MIT"
+}
