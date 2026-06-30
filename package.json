@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "description": "Small utilities.",
   "main": "src/greeting.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
   "license": "MIT"
 }
