@@ -1,0 +1,13 @@
+{
+  "name": "healthz-express-server",
+  "version": "1.0.0",
+  "description": "Simple Express server with a health check endpoint",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
