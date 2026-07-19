@@ -1,0 +1,10 @@
+{
+  "name": "regression-eval-repo-2",
+  "version": "1.0.0",
+  "description": "Minimal dependency-free greeting module.",
+  "main": "src/greeting.js",
+  "scripts": {
+    "test": "node -e \"const assert=require('assert');const {greet}=require('./src/greeting');assert.strictEqual(greet('Ada'),'Hello, Ada!');assert.strictEqual(greet(),'Hello, World!');console.log('ok');\""
+  },
+  "license": "MIT"
+}
