@@ -30,6 +30,14 @@ test('returns an empty string when there are no alphanumerics', () => {
   assert.equal(slugify(''), '');
 });
 
+test('preserves repeated separators when collapse is false', () => {
+  assert.equal(slugify('foo   bar', { collapse: false }), 'foo---bar');
+});
+
+test('supports a custom separator', () => {
+  assert.equal(slugify('Hello World', { separator: '_' }), 'hello_world');
+});
+
 test('throws a TypeError for non-string input', () => {
   assert.throws(() => slugify(42), TypeError);
   assert.throws(() => slugify(null), TypeError);
