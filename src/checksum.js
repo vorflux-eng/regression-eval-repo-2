@@ -2,7 +2,9 @@
 
 const crypto = require('crypto');
 
-const SUPPORTED_ALGORITHMS = ['md5', 'sha1', 'sha256', 'sha512'];
+// Frozen so callers cannot mutate the exported array to smuggle unsupported
+// algorithms past validation in checksum()/verifyChecksum().
+const SUPPORTED_ALGORITHMS = Object.freeze(['md5', 'sha1', 'sha256', 'sha512']);
 
 // Precompute the CRC32 lookup table once at module load (IEEE 802.3,
 // polynomial 0xEDB88320).

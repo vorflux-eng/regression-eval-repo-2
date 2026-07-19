@@ -153,4 +153,10 @@ describe('SUPPORTED_ALGORITHMS', () => {
       expect(available).toContain(algo);
     }
   });
+
+  test('is frozen so callers cannot smuggle in unsupported algorithms', () => {
+    expect(Object.isFrozen(SUPPORTED_ALGORITHMS)).toBe(true);
+    expect(() => SUPPORTED_ALGORITHMS.push('sha3-256')).toThrow();
+    expect(() => checksum('abc', 'sha3-256')).toThrow(/Unsupported algorithm/);
+  });
 });
