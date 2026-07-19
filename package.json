@@ -1,0 +1,13 @@
+{
+  "name": "regression-eval-repo-2",
+  "version": "1.0.0",
+  "description": "Checksum utilities",
+  "main": "src/checksum.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
