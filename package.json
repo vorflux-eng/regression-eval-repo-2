@@ -1,0 +1,9 @@
+{
+  "name": "regression-eval-repo-2",
+  "version": "1.0.0",
+  "description": "Utility library. All source lives under lib/.",
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
