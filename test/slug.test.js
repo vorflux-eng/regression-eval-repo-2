@@ -41,6 +41,11 @@ describe('slugify', () => {
     test('drops characters with no ASCII equivalent', () => {
       expect(slugify('日本語 text')).toBe('text');
     });
+
+    test('strips combining marks outside the basic range', () => {
+      // U+1AB0 is a combining mark; it should be removed, not turned into a gap.
+      expect(slugify('a\u1AB0b')).toBe('ab');
+    });
   });
 
   describe('edge cases', () => {
@@ -78,9 +83,10 @@ describe('slugify', () => {
       expect(slugify('Hello World', { separator: '' })).toBe('helloworld');
     });
 
-    test('strict mode removes residual non-alphanumeric characters', () => {
-      // With separator '.', strict mode strips a stray character class edge.
-      expect(slugify('a.b.c', { separator: '.', strict: true })).toBe('a.b.c');
+    test('alphanumeric separator does not corrupt content', () => {
+      // The separator only joins words; it must not strip real characters.
+      expect(slugify('apple pie', { separator: 'a' })).toBe('appleapie');
+      expect(slugify('20 20', { separator: '0' })).toBe('20020');
     });
   });
 
