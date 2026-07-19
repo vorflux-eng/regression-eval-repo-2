@@ -3,7 +3,9 @@ const http = require('http');
 const PORT = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
-  if (req.method === 'GET' && req.url === '/status') {
+  const pathname = new URL(req.url, 'http://localhost').pathname;
+
+  if (req.method === 'GET' && pathname === '/status') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ status: 'ok' }));
     return;
