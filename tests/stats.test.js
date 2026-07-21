@@ -34,4 +34,16 @@ describe("request counting and GET /stats", () => {
     const res = await request(app).get("/stats");
     expect(res.body["GET /stats"]).toBe(1);
   });
+
+  it("caps tracked routes and aggregates overflow into 'other'", async () => {
+    // Exceed the per-route tracking limit with many distinct paths so the
+    // counts map cannot grow without bound.
+    for (let i = 0; i < 1100; i++) {
+      await request(app).get(`/r-${i}`);
+    }
+    const res = await request(app).get("/stats");
+    const keyCount = Object.keys(res.body).length;
+    expect(keyCount).toBeLessThanOrEqual(1001); // 1000 tracked + overflow bucket
+    expect(res.body.other).toBeGreaterThan(0);
+  });
 });
