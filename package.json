@@ -1,0 +1,12 @@
+{
+  "name": "healthz-express-server",
+  "version": "1.0.0",
+  "description": "Small Express server with a GET /healthz endpoint",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
