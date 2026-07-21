@@ -6,4 +6,10 @@ app.get("/healthz", (_req, res) => {
   res.status(200).json({ status: "ok" });
 });
 
+app.use((req, _res, next) => {
+  console.log(`${req.method} ${req.originalUrl}`);
+
+  next();
+});
+
 module.exports = app;
