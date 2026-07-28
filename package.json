@@ -1,0 +1,17 @@
+{
+  "name": "regression-eval-repo-2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simple Express server with a health check endpoint",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
