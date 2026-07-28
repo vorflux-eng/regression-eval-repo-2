@@ -13,6 +13,21 @@ describe("GET /healthz", () => {
     expect(res.headers["content-type"]).toMatch(/application\/json/);
   });
 
+  it.each(["/healthz", "/healthz/", "/HEALTHZ"])(
+    "does not log health check request %s",
+    async (path) => {
+      const log = jest.spyOn(console, "log").mockImplementation(() => {});
+
+      try {
+        await request(app).get(path);
+
+        expect(log).not.toHaveBeenCalled();
+      } finally {
+        log.mockRestore();
+      }
+    },
+  );
+
   it("returns 404 for unknown routes", async () => {
     const res = await request(app).get("/unknown");
     expect(res.status).toBe(404);
