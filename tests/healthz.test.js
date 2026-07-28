@@ -18,3 +18,28 @@ describe("GET /healthz", () => {
     expect(res.status).toBe(404);
   });
 });
+
+describe("GET /stats", () => {
+  it("returns request counts for served routes", async () => {
+    await request(app).get("/healthz");
+    await request(app).get("/healthz");
+
+    const res = await request(app).get("/stats");
+
+    expect(res.status).toBe(200);
+    expect(res.body).toMatchObject({
+      "/healthz": expect.any(Number),
+      "/stats": expect.any(Number),
+    });
+  });
+
+  it("increments the count for each request to a route", async () => {
+    await request(app).get("/healthz");
+    const before = await request(app).get("/stats");
+    await request(app).get("/healthz");
+    const after = await request(app).get("/stats");
+
+    expect(after.body["/healthz"]).toBe(before.body["/healthz"] + 1);
+    expect(after.body["/stats"]).toBe(before.body["/stats"] + 1);
+  });
+});
