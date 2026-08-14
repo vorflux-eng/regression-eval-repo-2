@@ -1,37 +1,155 @@
+# Skill Search API
 
-![MasterHead](https://user-images.githubusercontent.com/10498744/210012254-234538ff-d198-48aa-8964-37e6fd45d227.gif)
-<h1 align="center">Yo , Piyush Bhawsar</h1> 
-<h2 align="center">Passionate MEARN Developer From India</h2>
-<img align="right" alt="Coding" width="400" src="https://image.myanimelist.net/ui/_3fYL8i6Q-n-155t3dn_4hksVs3MIJxHadG7A7FI_oTy9pL-UqrC-cycJtDkuZzC"
+A deterministic Node.js 20+ / Express 5 REST API for searching a small, static skill catalog. It searches skill names, tags, and descriptions and returns inspectable integer relevance scores. The service has no persistence, writes, authentication, pagination, frontend, caching, or external-service dependency.
 
-[![](https://visitcount.itsvg.in/api?id=piyushhhxyz&icon=0&color=6)](https://visitcount.itsvg.in)
-<!-- <p align="left"> <img src="https://komarev.com/ghpvc/?username=piyushbhawsar&label=Profile%20views&color=000000&style=flat" alt="piyushbhawsar" /> </p>-->
+## Run
 
-# 💫 About Piyush:
-🔭 I’m currently working on API & Testing<br>👯 I’m looking to collaborate on MEARN <br>🌱 I’m currently learning TypeScript and MySQL<br>💬 Ask me about JavaScript , Api's<br>⚡ Fun fact  I Code Daily 💫
+Prerequisite: Node.js 20 or newer.
 
-<h3 align="left">Connect With Piyush:</h3>
-<p align="left">
-<a href="https://twitter.com/piyush" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="piyush" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/peeyush ." target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="peeyush ." height="30" width="40" /></a>
-<a href="https://codeforces.com/profile/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg" alt="" height="30" width="40" /></a>
-<a href="https://www.leetcode.com/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="" height="30" width="40" /></a>
-</p>
+```sh
+npm ci
+npm start
+npm test
+```
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://angular.io" target="_blank" rel="noreferrer"> <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" width="40" height="40"/> </a> <a href="https://www.arduino.cc/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg" alt="arduino" width="40" height="40"/> </a><a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://flask.palletsprojects.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" alt="flask" width="40" height="40"/> </a> <a href="https://cloud.google.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://golang.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" alt="go" width="40" height="40"/> </a> <a href="https://graphql.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/graphql/graphql-icon.svg" alt="graphql" width="40" height="40"/> </a> <a href="https://www.adobe.com/in/products/illustrator.html" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" alt="illustrator" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://jekyllrb.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/jekyllrb/jekyllrb-icon.svg" alt="jekyll" width="40" height="40"/> </a> <a href="https://www.jenkins.io" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="jenkins" width="40" height="40"/> </a> <a href="https://kubernetes.io" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="kubernetes" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://mariadb.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/mariadb/mariadb-icon.svg" alt="mariadb" width="40" height="40"/> </a> <a href="https://middlemanapp.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/leungwensen/svg-icon/b84b3f3a3da329b7c1d02346865f8e98beb05413/dist/svg/logos/middleman.svg" alt="middleman" width="40" height="40"/> </a> <a href="https://mochajs.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/mochajs/mochajs-icon.svg" alt="mocha" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://www.microsoft.com/en-us/sql-server" target="_blank" rel="noreferrer"> <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="mssql" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.oracle.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg" alt="oracle" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://github.com/puppeteer/puppeteer" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/pptrdev/pptrdev-official.svg" alt="puppeteer" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://rubyonrails.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rails/rails-original-wordmark.svg" alt="rails" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://realm.io/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/bestofjs/bestofjs-webui/8665e8c267a0215f3159df28b33c365198101df5/public/logos/realm.svg" alt="realm" width="40" height="40"/> </a> <a href="https://sculpin.io/" target="_blank" rel="noreferrer"> <img src="https://gist.githubusercontent.com/vivek32ta/c7f7bf583c1fb1c58d89301ea40f37fd/raw/1782aef8672484698c0dd407f900c4a329ed5bc4/sculpin.svg" alt="sculpin" width="40" height="40"/> </a> <a href="https://www.selenium.dev" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/detain/svg-logos/780f25886640cef088af994181646db2f6b1a3f8/svg/selenium-logo.svg" alt="selenium" width="40" height="40"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a> <a href="https://travis-ci.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/travis-ci/travis-ci-icon.svg" alt="travisci" width="40" height="40"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> </a> <a href="https://www.adobe.com/products/xd.html" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/adobe-xd.svg" alt="xd" width="40" height="40"/> </a> </p>
+`npm start` listens on port 3000 when `PORT` is absent. A present `PORT` must be a decimal integer from 1 through 65535; surrounding whitespace and leading zeroes are allowed. For example:
 
+```sh
+PORT=3100 npm start
+```
 
+Empty values, signed values, decimal values, exponent notation, hexadecimal values, and values outside the range fail before the app is constructed or listens. Direct startup writes exactly this line to standard error and exits nonzero:
 
+```text
+Invalid PORT: expected a decimal integer from 1 to 65535.
+```
 
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=piyushhhxyz&theme=nightowl&hide_border=false&include_all_commits=true&count_private=false)<br/>
-![](https://github-readme-streak-stats.herokuapp.com/?user=piyushhhxyz&theme=nightowl&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=piyushhhxyz&theme=nightowl&hide_border=false&include_all_commits=true&count_private=false&layout=compact)
+## API
 
+The only endpoint is:
 
-### ✍️ Dev Quote
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
+```text
+GET /api/v1/skills/search?q=<keyword>&platform=<slug>&sort=relevance
+```
 
----
+Only `q`, `platform`, and `sort` are accepted. Express uses the simple query parser, so repeated parameters are arrays and invalid; bracketed names such as `q[name]` are unsupported keys.
 
+### Examples
+
+The normative Express search returns one result with score 121:
+
+```sh
+curl 'http://localhost:3000/api/v1/skills/search?q=express&platform=api'
+```
+
+```json
+{
+  "data": [{
+    "id": "skill-express-routing",
+    "name": "Express Routing",
+    "description": "Define HTTP routes and middleware with Express.",
+    "platforms": ["api"],
+    "tags": ["express", "routing", "middleware"],
+    "relevanceScore": 121
+  }],
+  "meta": { "query": "express", "platform": "api", "sort": "relevance", "count": 1 }
+}
+```
+
+Omitting `platform` searches every platform and returns an explicit `null` metadata value:
+
+```sh
+curl 'http://localhost:3000/api/v1/skills/search?q=node'
+```
+
+A meaningful query that has no matches is successful:
+
+```sh
+curl 'http://localhost:3000/api/v1/skills/search?q=unfindable'
+# {"data":[],"meta":{"query":"unfindable","platform":null,"sort":"relevance","count":0}}
+```
+
+A punctuation-only query is invalid:
+
+```sh
+curl 'http://localhost:3000/api/v1/skills/search?q=!'
+```
+
+It returns HTTP 400 with this envelope:
+
+```json
+{
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Invalid query parameters",
+    "details": [{
+      "field": "q",
+      "issue": "q must contain at least one letter or number token and at least 2 letter or number characters"
+    }]
+  }
+}
+```
+
+All unmatched paths and methods, including `POST /api/v1/skills/search`, return HTTP 404:
+
+```json
+{"error":{"code":"NOT_FOUND","message":"Route not found"}}
+```
+
+Unexpected service failures return a sanitized HTTP 500 envelope and never include exception details:
+
+```json
+{"error":{"code":"INTERNAL_ERROR","message":"Internal server error"}}
+```
+
+## Validation and normalization
+
+`q` is required and must be exactly one string. `platform` and `sort` are optional, but when supplied must each be exactly one string. Raw string limits are checked before normalization:
+
+| Parameter | Raw limit | Normalized limit | Additional rule |
+| --- | ---: | ---: | --- |
+| `q` | 512 UTF-16 code units | 100 Unicode code points | At least one letter/number token and at least two total letter/number code points |
+| `platform` | 256 UTF-16 code units | 50 Unicode code points | Must be a platform derived from the active catalog |
+| `sort` | 64 UTF-16 code units | — | Must normalize to `relevance` |
+
+Text normalization is NFKC, lowercase, NFKC again, trim, then collapse whitespace to one ASCII space. `sort` is case-insensitive and defaults to `relevance`. Platforms use the same normalization, so an injected catalog value such as `Api` or `ＡＰＩ` has canonical slug `api` for validation, filtering, and metadata; returned record fields retain their source values.
+
+Tokens are `/[\p{L}\p{N}]+/gu` runs from normalized text. Precomposed and decomposed accents normalize identically. A standalone combining mark creates no token; a non-composable combining mark between letters/numbers separates token runs. This is deliberately deterministic tokenization rather than locale-aware word segmentation.
+
+Each recognized field emits at most one issue. The field order is `q`, `platform`, `sort`, then one `query` detail for all unsupported keys, whose `keys` array uses direct code-point ordering. The exported `VALIDATION_ISSUES` map is the canonical public issue text.
+
+## Ranking
+
+Searches score only platform-eligible records. A query phrase is compared as normalized token sequences, so `node.js`, `node-js`, and `node js` share phrase view `node js`. Repeated query tokens are retained for phrase matching; first-occurrence unique query tokens are used for token scoring.
+
+Phrase weights:
+
+- name exact phrase: +100; otherwise a contiguous name phrase: +50
+- an individual exact tag phrase: +25 once
+- contiguous description phrase: +10 once
+
+For every unique query token, field groups score independently:
+
+| Field group | Exact token | Eligible prefix |
+| --- | ---: | ---: |
+| name | +20 | +10 |
+| all tags | +12 | +6 |
+| description | +4 | +2 |
+
+A prefix is `fieldToken.startsWith(queryToken)`, needs at least two Unicode code points in the query token, and is used only if that field group has no exact token for it. Exact and prefix points do not stack in one field group. Phrase and token signals intentionally do stack: the single-token `express` record receives `50 + 25 + 10 + 20 + 12 + 4 = 121`.
+
+Records scoring zero are omitted. Results sort by descending score, then normalized name ascending and ID ascending using direct JavaScript code-point comparisons (not locale comparison or insertion order). Every returned record contains only public seed fields plus integer `relevanceScore`.
+
+## Catalog and extension seams
+
+The checked-in catalog is in `src/skills/skills.data.js`, is deeply frozen, and resets to its original state on process restart. Seed records have globally unique lowercase-slug IDs, nonblank display fields, nonempty platform/tag arrays, and no duplicate normalized platform or tag within a record. Add a seed by preserving those invariants and freezing the record and nested arrays like the existing entries.
+
+The service is intentionally testable through dependency injection:
+
+- `createApp({ catalog = SKILLS, search = searchSkills })`
+- `createSkillsRouter({ catalog, search })`
+- `searchSkills({ query, platform, catalog })`
+- `startServer({ app, port })`
+- `runCli({ createApp, env, stderr })`
+
+These seams permit custom in-memory catalogs and synchronous or promise-returning search functions without adding a database or service integration.
