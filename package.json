@@ -1,0 +1,8 @@
+{
+  "name": "regression-eval-repo-2",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  }
+}
