@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "pretest": "npm ci --include=dev --ignore-scripts"
   },
   "dependencies": {
     "express": "^4.21.0"
