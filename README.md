@@ -1,3 +1,20 @@
+## Health check server
+
+Use Node.js 22 or later.
+
+```sh
+npm ci
+npm start
+```
+
+The server uses port `3000` by default. Set `PORT` to use another port.
+
+`GET /healthz` returns HTTP `200` with the JSON body `{"status":"ok"}`.
+
+```sh
+curl http://localhost:3000/healthz
+npm test
+```
 
 ![MasterHead](https://user-images.githubusercontent.com/10498744/210012254-234538ff-d198-48aa-8964-37e6fd45d227.gif)
 <h1 align="center">Yo , Piyush Bhawsar</h1> 
@@ -34,4 +51,3 @@
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
 ---
-
