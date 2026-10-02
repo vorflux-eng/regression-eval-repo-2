@@ -1038,6 +1038,18 @@ class DiscoverDatasetConfig(DatasetConfig):
                     default_result_type="integer",
                     private=True,
                 ),
+                SnQLFunction(
+                    "upsampled_count",
+                    required_args=[],
+                    # Optimized aggregation for error upsampling - assumes sample_weight
+                    # exists for all events in allowlisted projects as per schema design
+                    snql_aggregate=lambda args, alias: Function(
+                        "toInt64",
+                        [Function("sum", [Column("sample_weight")])],
+                        alias,
+                    ),
+                    default_result_type="number",
+                ),
             ]
         }
 
