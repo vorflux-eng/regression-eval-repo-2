@@ -18,3 +18,27 @@ describe("GET /healthz", () => {
     expect(res.status).toBe(404);
   });
 });
+
+describe("request logging", () => {
+  let logSpy;
+
+  beforeEach(() => {
+    logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    logSpy.mockRestore();
+  });
+
+  it("logs non-health-check requests", async () => {
+    await request(app).get("/unknown");
+
+    expect(logSpy).toHaveBeenCalledWith("GET /unknown");
+  });
+
+  it("does not log health-check requests", async () => {
+    await request(app).get("/healthz");
+
+    expect(logSpy).not.toHaveBeenCalled();
+  });
+});
