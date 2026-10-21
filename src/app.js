@@ -6,9 +6,9 @@ const requestCounts = {};
 function countedGet(path, handler) {
   requestCounts[path] = 0;
 
-  app.get(path, (req, res) => {
+  app.get(path, (req, res, next) => {
     requestCounts[path] += 1;
-    handler(req, res);
+    return handler(req, res, next);
   });
 }
 

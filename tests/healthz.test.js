@@ -21,17 +21,20 @@ describe("GET /healthz", () => {
 
 describe("GET /stats", () => {
   it("returns request counts for each route", async () => {
-    const initialStats = await request(app).get("/stats");
+    jest.resetModules();
+    const freshApp = require("../src/app");
 
-    await request(app).get("/healthz");
-    await request(app).get("/healthz");
+    const initialStats = await request(freshApp).get("/stats");
+    expect(initialStats.body).toEqual({ "/healthz": 0, "/stats": 1 });
 
-    const res = await request(app).get("/stats");
+    await request(freshApp).get("/unknown");
+
+    await request(freshApp).get("/healthz");
+    await request(freshApp).get("/healthz");
+
+    const res = await request(freshApp).get("/stats");
 
     expect(res.status).toBe(200);
-    expect(res.body).toEqual({
-      "/healthz": initialStats.body["/healthz"] + 2,
-      "/stats": initialStats.body["/stats"] + 1,
-    });
+    expect(res.body).toEqual({ "/healthz": 2, "/stats": 2 });
   });
 });
