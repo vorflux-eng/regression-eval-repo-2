@@ -14,5 +14,13 @@ describe("/status", () => {
     const res = await request(app).head("/status");
 
     expect(res.status).toBe(200);
+    expect(res.headers["content-type"]).toMatch(/application\/json/);
+    expect(res.text).toBeUndefined();
+  });
+
+  it("returns 404 for unsupported methods", async () => {
+    const res = await request(app).post("/status");
+
+    expect(res.status).toBe(404);
   });
 });
