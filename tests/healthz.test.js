@@ -30,12 +30,18 @@ describe("GET /stats", () => {
     await request(app).get("/healthz");
     await request(app).get("/healthz");
 
-    const res = await request(app).get("/stats");
+    const firstRes = await request(app).get("/stats");
+    const secondRes = await request(app).get("/stats");
 
-    expect(res.status).toBe(200);
-    expect(res.body).toEqual({
+    expect(firstRes.status).toBe(200);
+    expect(firstRes.body).toEqual({
       "/healthz": 2,
       "/stats": 1,
+    });
+    expect(secondRes.status).toBe(200);
+    expect(secondRes.body).toEqual({
+      "/healthz": 2,
+      "/stats": 2,
     });
   });
 
