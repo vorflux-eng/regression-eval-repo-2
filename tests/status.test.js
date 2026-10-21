@@ -6,6 +6,7 @@ describe("GET /status", () => {
     const res = await request(app).get("/status");
 
     expect(res.status).toBe(200);
+    expect(res.headers["content-type"]).toMatch(/application\/json/);
     expect(res.body).toEqual({ status: "ok" });
   });
 });
