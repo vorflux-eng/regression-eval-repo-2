@@ -16,14 +16,23 @@ describe("GET /healthz", () => {
   it("does not log health check requests", async () => {
     const log = jest.spyOn(console, "log").mockImplementation(() => {});
 
-    await request(app).get("/healthz");
-
-    expect(log).not.toHaveBeenCalled();
-    log.mockRestore();
+    try {
+      await request(app).get("/healthz");
+      expect(log).not.toHaveBeenCalled();
+    } finally {
+      log.mockRestore();
+    }
   });
 
-  it("returns 404 for unknown routes", async () => {
-    const res = await request(app).get("/unknown");
-    expect(res.status).toBe(404);
+  it("logs unknown requests and preserves the 404 response", async () => {
+    const log = jest.spyOn(console, "log").mockImplementation(() => {});
+
+    try {
+      const res = await request(app).get("/unknown?probe=1");
+      expect(res.status).toBe(404);
+      expect(log).toHaveBeenCalledWith("GET /unknown?probe=1");
+    } finally {
+      log.mockRestore();
+    }
   });
 });
