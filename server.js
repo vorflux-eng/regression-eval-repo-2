@@ -1,9 +1,17 @@
 const http = require('node:http');
 
 const server = http.createServer((request, response) => {
-  if (request.method === 'GET' && request.url === '/status') {
+  const pathname = new URL(request.url, 'http://localhost').pathname;
+
+  if (pathname === '/status' && ['GET', 'HEAD'].includes(request.method)) {
     response.writeHead(200, { 'Content-Type': 'application/json' });
     response.end(JSON.stringify({ status: 'ok' }));
+    return;
+  }
+
+  if (pathname === '/status') {
+    response.writeHead(405, { Allow: 'GET, HEAD' });
+    response.end();
     return;
   }
 
@@ -12,7 +20,7 @@ const server = http.createServer((request, response) => {
 });
 
 if (require.main === module) {
-  server.listen(process.env.PORT || 3000);
+  server.listen(Number(process.env.PORT) || 3000);
 }
 
 module.exports = server;
