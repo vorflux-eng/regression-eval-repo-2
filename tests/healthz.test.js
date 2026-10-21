@@ -2,6 +2,17 @@ const request = require("supertest");
 const app = require("../src/app");
 
 describe("GET /healthz", () => {
+  it("does not log health check requests", async () => {
+    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+
+    try {
+      await request(app).get("/healthz");
+      expect(logSpy).not.toHaveBeenCalled();
+    } finally {
+      logSpy.mockRestore();
+    }
+  });
+
   it("returns 200 with { status: 'ok' }", async () => {
     const res = await request(app).get("/healthz");
     expect(res.status).toBe(200);
