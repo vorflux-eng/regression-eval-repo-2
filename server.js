@@ -1,7 +1,7 @@
 const http = require('node:http');
 
 const server = http.createServer((request, response) => {
-  const pathname = new URL(request.url, 'http://localhost').pathname;
+  const pathname = request.url.split('?')[0];
 
   if (pathname === '/status' && ['GET', 'HEAD'].includes(request.method)) {
     response.writeHead(200, { 'Content-Type': 'application/json' });
