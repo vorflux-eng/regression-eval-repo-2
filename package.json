@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "test": "jest --verbose"
+    "test": "jest --verbose --testPathIgnorePatterns=/test/ && node --test test/math.test.js",
+    "test:math": "node --test test/math.test.js"
   },
   "dependencies": {
     "express": "^4.21.0"
