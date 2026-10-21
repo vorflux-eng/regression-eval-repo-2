@@ -6,4 +6,9 @@ const server = app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
 
+server.on("error", (error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
+
 module.exports = server;
