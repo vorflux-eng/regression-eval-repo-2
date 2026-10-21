@@ -32,7 +32,7 @@ describe("GET /stats", () => {
     expect(after.status).toBe(200);
     expect(after.headers["content-type"]).toMatch(/application\/json/);
     expect(after.body).toEqual({
-      "/healthz": before.body["/healthz"] + 2,
+      "/healthz": (before.body["/healthz"] ?? 0) + 2,
       "/stats": before.body["/stats"] + 1,
     });
     expect(after.body).not.toHaveProperty("/unknown");
