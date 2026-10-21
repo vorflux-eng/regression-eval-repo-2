@@ -13,7 +13,7 @@ app.get("/healthz", (_req, res) => {
 
 app.get("/stats", (_req, res) => {
   requestCounts["/stats"] += 1;
-  res.status(200).json(requestCounts);
+  res.json(requestCounts);
 });
 
 module.exports = app;

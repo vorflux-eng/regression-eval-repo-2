@@ -24,7 +24,9 @@ describe("GET /stats", () => {
 
     const after = await request(app).get("/stats");
 
-    expect(after.body["/healthz"]).toBe(before.body["/healthz"]);
-    expect(after.body["/stats"]).toBe(before.body["/stats"] + 1);
+    expect(after.body).toEqual({
+      "/healthz": before.body["/healthz"],
+      "/stats": before.body["/stats"] + 1,
+    });
   });
 });
