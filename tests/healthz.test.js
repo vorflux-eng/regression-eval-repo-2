@@ -44,6 +44,21 @@ describe("GET /stats", () => {
 
     const res = await request(app).get("/stats");
 
-    expect(res.body).not.toHaveProperty("GET /unknown");
+    expect(res.body).toEqual({
+      "GET /healthz": 0,
+      "GET /stats": 1,
+    });
+  });
+
+  it("counts HEAD requests separately from GET requests", async () => {
+    await request(app).head("/healthz");
+
+    const res = await request(app).get("/stats");
+
+    expect(res.body).toEqual({
+      "GET /healthz": 0,
+      "GET /stats": 1,
+      "HEAD /healthz": 1,
+    });
   });
 });

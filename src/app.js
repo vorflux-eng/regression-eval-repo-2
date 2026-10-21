@@ -4,10 +4,11 @@ const app = express();
 const requestCounts = {};
 
 const track = (method, path, handler) => {
-  const route = `${method} ${path}`;
-  requestCounts[route] = 0;
+  requestCounts[`${method} ${path}`] = 0;
 
   app[method.toLowerCase()](path, (req, res, next) => {
+    const route = `${req.method} ${path}`;
+    requestCounts[route] = requestCounts[route] || 0;
     requestCounts[route] += 1;
     return handler(req, res, next);
   });
