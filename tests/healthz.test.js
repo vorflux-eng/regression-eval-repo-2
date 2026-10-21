@@ -30,4 +30,9 @@ describe("GET /status", () => {
     const res = await request(app).get("/status");
     expect(res.headers["content-type"]).toMatch(/application\/json/);
   });
+
+  it("does not expose the Express banner header", async () => {
+    const res = await request(app).get("/status");
+    expect(res.headers["x-powered-by"]).toBeUndefined();
+  });
 });
