@@ -2,6 +2,10 @@ const request = require("supertest");
 const app = require("../src/app");
 
 describe("GET /healthz", () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   it("returns 200 with { status: 'ok' }", async () => {
     const res = await request(app).get("/healthz");
     expect(res.status).toBe(200);
@@ -19,7 +23,6 @@ describe("GET /healthz", () => {
     await request(app).get("/healthz");
 
     expect(logSpy).not.toHaveBeenCalled();
-    logSpy.mockRestore();
   });
 
   it("returns 404 for unknown routes", async () => {
