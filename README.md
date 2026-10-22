@@ -35,3 +35,7 @@
 
 ---
 
+
+## License
+
+[MIT](LICENSE)
