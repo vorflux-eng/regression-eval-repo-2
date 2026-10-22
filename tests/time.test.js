@@ -5,7 +5,20 @@ describe("GET /time", () => {
   const now = new Date("2026-10-22T10:23:51.000Z");
 
   beforeEach(() => {
-    jest.useFakeTimers().setSystemTime(now);
+    jest
+      .useFakeTimers({
+        doNotFake: [
+          "nextTick",
+          "setImmediate",
+          "clearImmediate",
+          "setInterval",
+          "clearInterval",
+          "setTimeout",
+          "clearTimeout",
+          "queueMicrotask",
+        ],
+      })
+      .setSystemTime(now);
   });
 
   afterEach(() => {
@@ -16,6 +29,7 @@ describe("GET /time", () => {
     const res = await request(app).get("/time");
 
     expect(res.status).toBe(200);
+    expect(res.headers["content-type"]).toMatch(/application\/json/);
     expect(res.body).toEqual({ time: "2026-10-22T10:23:51.000Z" });
   });
 });
