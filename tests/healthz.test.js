@@ -41,5 +41,6 @@ describe("GET /stats", () => {
 
     const after = await request(app).get("/stats");
     expect(Object.keys(after.body)).toEqual(Object.keys(before.body));
+    expect(after.body["/healthz"]).toBe(before.body["/healthz"]);
   });
 });
