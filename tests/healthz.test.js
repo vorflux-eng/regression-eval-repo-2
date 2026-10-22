@@ -2,6 +2,10 @@ const request = require("supertest");
 const app = require("../src/app");
 
 describe("GET /healthz", () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   it("returns 200 with { status: 'ok' }", async () => {
     const res = await request(app).get("/healthz");
     expect(res.status).toBe(200);
@@ -11,6 +15,14 @@ describe("GET /healthz", () => {
   it("returns JSON content-type", async () => {
     const res = await request(app).get("/healthz");
     expect(res.headers["content-type"]).toMatch(/application\/json/);
+  });
+
+  it("does not log health check requests", async () => {
+    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+
+    await request(app).get("/healthz");
+
+    expect(logSpy).not.toHaveBeenCalled();
   });
 
   it("returns 404 for unknown routes", async () => {
