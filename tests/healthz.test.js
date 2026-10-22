@@ -18,3 +18,29 @@ describe("GET /healthz", () => {
     expect(res.status).toBe(404);
   });
 });
+
+describe("GET /stats", () => {
+  it("returns the number of requests served by each route", async () => {
+    const before = await request(app).get("/stats");
+
+    await request(app).get("/healthz");
+    await request(app).get("/healthz");
+
+    const after = await request(app).get("/stats");
+
+    expect(after.status).toBe(200);
+    expect(after.headers["content-type"]).toMatch(/application\/json/);
+    expect(after.body["/healthz"]).toBe((before.body["/healthz"] || 0) + 2);
+    expect(after.body["/stats"]).toBe(before.body["/stats"] + 1);
+  });
+
+  it("does not count unknown routes", async () => {
+    const before = await request(app).get("/stats");
+
+    await request(app).get("/unknown");
+
+    const after = await request(app).get("/stats");
+    expect(Object.keys(after.body)).toEqual(Object.keys(before.body));
+    expect(after.body["/healthz"]).toBe(before.body["/healthz"]);
+  });
+});
