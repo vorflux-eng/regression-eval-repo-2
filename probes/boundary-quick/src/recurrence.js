@@ -26,13 +26,15 @@ function expandWeekly(start, count, interval = 1) {
 function nthWeekdayOfMonth(year, month, weekday, nth) {
   if (nth > 0) {
     const first = toUtcDate(year, month, 1);
-    const offset = (weekday - first.getUTCDay()) % 7;
+    const offset = (weekday - first.getUTCDay() + 7) % 7;
     const day = 1 + offset + (nth - 1) * 7;
-    return toUtcDate(year, month, day);
+    const date = toUtcDate(year, month, day);
+    return date.getUTCMonth() === month ? date : null;
   }
   const last = toUtcDate(year, month + 1, 0);
-  const offset = (last.getUTCDay() - weekday) % 7;
-  return toUtcDate(year, month, last.getUTCDate() - offset);
+  const offset = (last.getUTCDay() - weekday + 7) % 7;
+  const day = last.getUTCDate() - offset + (nth + 1) * 7;
+  return day > 0 ? toUtcDate(year, month, day) : null;
 }
 
 function expandMonthlyByDay(start, rule, count) {
@@ -42,7 +44,7 @@ function expandMonthlyByDay(start, rule, count) {
   const out = [];
   while (out.length < count) {
     const date = nthWeekdayOfMonth(year, month, rule.weekday, rule.nth);
-    if (date >= first) out.push(iso(date));
+    if (date && date >= first) out.push(iso(date));
     month += 1;
     if (month > 11) {
       month = 0;
