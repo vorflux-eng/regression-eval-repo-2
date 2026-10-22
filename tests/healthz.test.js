@@ -30,7 +30,7 @@ describe("GET /stats", () => {
 
     expect(res.status).toBe(200);
     expect(res.body).toEqual({
-      "/healthz": (initialStats.body["/healthz"] || 0) + 2,
+      "/healthz": initialStats.body["/healthz"] + 2,
       "/stats": initialStats.body["/stats"] + 1,
     });
   });
@@ -42,7 +42,9 @@ describe("GET /stats", () => {
 
     const after = await request(app).get("/stats");
 
-    expect(after.body["/healthz"]).toBe(before.body["/healthz"]);
-    expect(after.body["/stats"]).toBe(before.body["/stats"] + 1);
+    expect(after.body).toEqual({
+      ...before.body,
+      "/stats": before.body["/stats"] + 1,
+    });
   });
 });

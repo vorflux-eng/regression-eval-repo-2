@@ -1,7 +1,10 @@
 const express = require("express");
 
 const app = express();
-const requestCounts = Object.create(null);
+const requestCounts = Object.assign(Object.create(null), {
+  "/healthz": 0,
+  "/stats": 0,
+});
 
 function countRequest(route) {
   return (_req, _res, next) => {
