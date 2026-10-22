@@ -1,0 +1,8 @@
+{
+  "name": "shell-failure",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --max-warnings=0 src",
+    "test": "node --test"
+  }
+}
