@@ -1,0 +1,8 @@
+{
+  "name": "edit-pretest-tool",
+  "private": true,
+  "scripts": {
+    "pretest": "node scripts/check-node.js",
+    "test": "node --test"
+  }
+}
