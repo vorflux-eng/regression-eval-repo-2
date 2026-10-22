@@ -1,0 +1,7 @@
+{
+  "name": "boundary-isoweek",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "large-output",
+  "private": true,
+  "scripts": {
+    "audit": "node scripts/audit.js"
+  }
+}

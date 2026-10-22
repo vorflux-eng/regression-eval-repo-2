@@ -1,0 +1,7 @@
+{
+  "name": "boundary-quick",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}
