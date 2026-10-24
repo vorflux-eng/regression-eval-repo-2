@@ -1,0 +1,14 @@
+{
+  "name": "regression-eval-repo-2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Math utilities",
+  "main": "lib/math.js",
+  "scripts": {
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "engines": {
+    "node": ">=21"
+  },
+  "license": "UNLICENSED"
+}
