@@ -1,7 +1,7 @@
 {
   "name": "regression-eval-repo-2",
   "version": "1.0.0",
-  "description": "Math utilities",
+  "description": "Math and statistics utilities",
   "main": "lib/math.js",
   "files": [
     "lib/"
