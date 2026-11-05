@@ -12,6 +12,10 @@ there when the fixture changes.
 
 ## Planted issues
 
+`.gitleaks.toml` adds one `fixture-` marker rule on top of the default rules, so
+F8 and D4 are visible to a secret scan. The rule reports both on purpose: telling
+the real leak from the structural constant is the reader's job.
+
 `expected-findings.json` is the grading contract. Each entry has a stable `id`,
 the file and line, a CWE, and the kind of evidence a run must produce.
 

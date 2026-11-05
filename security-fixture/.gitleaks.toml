@@ -1,0 +1,12 @@
+# Default rules cover the committed .env example keys. The two `fixture-`
+# constants in app/main.py are deliberate fake values, so they match no provider
+# shape; this rule makes them visible to gitleaks without allowlisting them,
+# which keeps the D4 decoy reportable. The name prefix keeps unrelated
+# `fixture-` idents, such as the bucket name, out of the report.
+[extend]
+useDefault = true
+
+[[rules]]
+id = "fixture-marker"
+description = "Fixture value with a fixture- prefix"
+regex = '''(?i)[A-Za-z_]*(key|token|secret)[A-Za-z_]*["']?\]?\s*[:=]\s*["']?fixture-[A-Za-z0-9-]{8,}'''
