@@ -6,7 +6,7 @@ created_by: "agent@vorflux.com"
 approved_by: "agent@vorflux.com"
 expires_at: "2026-12-05"
 mode: active
-allowlist_state: unknown
+allowlist_state: known
 targets:
   - kind: url
     value: "http://127.0.0.1:8000"

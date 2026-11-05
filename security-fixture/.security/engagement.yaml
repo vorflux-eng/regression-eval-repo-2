@@ -6,7 +6,9 @@ created_by: "agent@vorflux.com"
 approved_by: "agent@vorflux.com"
 expires_at: "2026-12-05"
 mode: active
-allowlist_state: unknown
+# Loopback needs no allowlist, so the state is known. Above `passive` an unknown
+# state rejects, because a shared NAT address never proves authorization.
+allowlist_state: known
 targets:
   - kind: url
     value: "http://127.0.0.1:8000"
@@ -19,5 +21,6 @@ budgets:
 techniques:
   content_discovery: true
   template_scan: true
-  sql_injection: "run"
+  # sqlmap runs under `intrusive`; the active row proves F1 with crafted requests.
+  sql_injection: "skip"
   default_credentials: "skip"
