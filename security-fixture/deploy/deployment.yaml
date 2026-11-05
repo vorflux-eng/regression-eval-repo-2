@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fixture
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fixture
+  template:
+    metadata:
+      labels:
+        app: fixture
+    spec:
+      containers:
+        - name: fixture
+          image: fixture:latest
+          ports:
+            - containerPort: 8000

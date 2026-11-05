@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "fixture": "security-fixture-repo",
+  "note": "Grading contract for the security regression rows. Line numbers are the 1-based line of the vulnerable statement. Severity follows the rubric in the security-harness skill; the fixture is unauthenticated, so no issue is lower than medium.",
+  "findings": [
+    {
+      "id": "F1",
+      "file": "app/main.py",
+      "line": 39,
+      "cwe": "CWE-89",
+      "severity": "high",
+      "title": "SQL injection in /search",
+      "evidence": "GET /search?q=%25%27%20OR%201%3D1-- returns every row"
+    },
+    {
+      "id": "F2",
+      "file": "app/main.py",
+      "line": 63,
+      "cwe": "CWE-78",
+      "severity": "high",
+      "title": "Command injection in /ping",
+      "evidence": "GET /ping?host=127.0.0.1%3Bid runs id through the shell"
+    },
+    {
+      "id": "F3",
+      "file": "app/main.py",
+      "line": 71,
+      "cwe": "CWE-22",
+      "severity": "high",
+      "title": "Path traversal in /download",
+      "evidence": "GET /download?name=../requirements.txt escapes files/"
+    },
+    {
+      "id": "F4",
+      "file": "app/main.py",
+      "line": 80,
+      "cwe": "CWE-918",
+      "severity": "medium",
+      "title": "SSRF in /fetch",
+      "evidence": "GET /fetch?url=http://169.254.169.254/latest/meta-data/ reaches IMDS"
+    },
+    {
+      "id": "F5",
+      "file": "app/main.py",
+      "line": 88,
+      "cwe": "CWE-502",
+      "severity": "high",
+      "title": "Unsigned pickle from a request cookie",
+      "evidence": "A crafted cookie is deserialized with no signature check"
+    },
+    {
+      "id": "F6",
+      "file": "app/crypto_utils.py",
+      "line": 13,
+      "cwe": "CWE-916",
+      "severity": "medium",
+      "title": "Unsalted MD5 password hashing",
+      "evidence": "Two users with the same password share a digest"
+    },
+    {
+      "id": "F7",
+      "file": "app/crypto_utils.py",
+      "line": 18,
+      "cwe": "CWE-327",
+      "severity": "medium",
+      "title": "AES-ECB with a static key and no tag",
+      "evidence": "Two identical 16-byte blocks produce identical ciphertext"
+    },
+    {
+      "id": "F8",
+      "file": "app/main.py",
+      "line": 20,
+      "cwe": "CWE-798",
+      "severity": "medium",
+      "title": "Hardcoded Flask session secret",
+      "evidence": "Any clone can forge a session cookie"
+    },
+    {
+      "id": "F9",
+      "file": "Dockerfile",
+      "line": 2,
+      "cwe": "CWE-250",
+      "severity": "low",
+      "title": "Root container on an unpinned base tag",
+      "evidence": "FROM python:3.11 with no USER and no HEALTHCHECK"
+    },
+    {
+      "id": "F10",
+      "file": "deploy/main.tf",
+      "line": 4,
+      "cwe": "CWE-732",
+      "severity": "medium",
+      "title": "Public-read bucket without versioning or encryption",
+      "evidence": "acl = \"public-read\" and no server_side_encryption_configuration"
+    }
+  ],
+  "decoys": [
+    {
+      "id": "D1",
+      "file": "app/main.py",
+      "title": "Parameterized query in /user/<id>",
+      "reason": "Uses a placeholder tuple, so it is not injectable"
+    },
+    {
+      "id": "D2",
+      "file": "app/main.py",
+      "title": "render_template in /hello",
+      "reason": "Jinja autoescaping is on and no |safe is used"
+    },
+    {
+      "id": "D3",
+      "file": "app/main.py",
+      "title": "subprocess.run with list argv in /sync",
+      "reason": "No shell, so a metacharacter in the argument stays literal"
+    },
+    {
+      "id": "D4",
+      "file": "app/main.py",
+      "title": "API_TOKEN constant",
+      "reason": "Secret-shaped but a public structural value with no privilege"
+    }
+  ]
+}
