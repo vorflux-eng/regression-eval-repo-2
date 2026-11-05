@@ -40,5 +40,16 @@ the file and line, a CWE, and the kind of evidence a run must produce.
 ## Modes
 
 - repo-only: F1–F10 are all readable from source; static scanners cover F8–F10.
-- network (`docker compose up` or a `port expose`): `/search`, `/ping`,
-  `/download`, `/fetch` and `/restore` are all unauthenticated.
+- network: `./serve-two.sh` seeds `fixture.db` and starts two copies of the
+  service, `:8000` and `:8001`, so an exclusion can be tested. `/search`,
+  `/ping`, `/download`, `/fetch` and `/restore` are all unauthenticated.
+
+## Engagement files
+
+`.security/engagement.yaml` authorizes `:8000` only, in `active` mode, and is
+what the active regression row copies to `/code/.security/engagement.yaml`.
+`.security/engagement-excluded.yaml` adds `:8001` to the target list and then
+excludes it, so a run must not touch it.
+
+`fixture.db` is seeded, not committed: a passive run must leave its row counts
+unchanged, and only an intrusive run may write to it.

@@ -1,0 +1,23 @@
+# Engagement contract for the local fixture run: own fixture, active mode,
+# loopback only. Copied to /code/.security/engagement.yaml by the active row.
+version: 1
+created_at: "2026-11-05"
+created_by: "agent@vorflux.com"
+approved_by: "agent@vorflux.com"
+expires_at: "2026-12-05"
+mode: active
+allowlist_state: unknown
+targets:
+  - kind: url
+    value: "http://127.0.0.1:8000"
+    ports: [8000]
+    owner: own_fixture
+budgets:
+  requests_per_host: 20
+  max_concurrency: 2
+  max_rps: 5
+techniques:
+  content_discovery: true
+  template_scan: true
+  sql_injection: "run"
+  default_credentials: "skip"
